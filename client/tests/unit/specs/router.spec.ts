@@ -15,9 +15,12 @@ describe("router.ts", () => {
     });
 
     it("returns the input route with the app path base prepended", () => {
+      vi.stubEnv("VITE_APP_PATH_BASE", "/my-app");
+      const pathBase = import.meta.env.VITE_APP_PATH_BASE;
       const inputRoute = "/some-path";
       const appRoute = getAppRoute(inputRoute);
-      expect(appRoute).toStrictEqual(inputRoute);
+
+      expect(appRoute).toStrictEqual(`${pathBase}${inputRoute}`);
     });
   });
 });

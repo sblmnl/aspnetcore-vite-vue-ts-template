@@ -3,5 +3,5 @@
   "compilerOptions": {
     "types": ["vitest/globals"],
   },
-  "include": ["**/*.ts"],
+  "include": ["../../src/vite-env.d.ts", "**/*.ts"],
 }
