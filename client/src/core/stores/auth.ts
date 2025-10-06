@@ -1,4 +1,5 @@
 import type { GetAuthenticatedUserApiResponse } from "@/core/models/api/auth/me";
+import { getAppRoute } from "@/router";
 import axios from "axios";
 import { DateTime } from "luxon";
 import { defineStore } from "pinia";
@@ -28,7 +29,7 @@ export const useAuthStore = defineStore(
         return;
       }
 
-      const res = await axios.get("/api/me");
+      const res = await axios.get(getAppRoute("/api/me"));
 
       state.user = res.data;
     }
