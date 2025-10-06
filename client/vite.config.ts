@@ -55,14 +55,14 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, __dirname, "");
 
   const base = env.VITE_APP_PATH_BASE;
-  const basePath = base != null ? `${base}/` : "";
+  const basePath = base != null ? base : "";
 
   const proxyRoutes = ["/api"];
 
   const proxy: Record<string, string | ProxyOptions> | undefined = {};
   proxyRoutes.forEach((route) => {
-    const routePattern = buildCaseInsensitiveRoutePattern(route);
-    proxy[`^${basePath}${routePattern}`] = { target, secure: false };
+    const routePattern = buildCaseInsensitiveRoutePattern(`${basePath}${route}`);
+    proxy[`^${routePattern}`] = { target, secure: false };
   });
 
   return {

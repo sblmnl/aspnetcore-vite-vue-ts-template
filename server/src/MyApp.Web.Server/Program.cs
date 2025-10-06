@@ -4,10 +4,12 @@ builder.Services.AddExceptionHandler<ExceptionHandlerMiddleware>();
 
 var app = builder.Build();
 
+app.UsePathBase(app.Configuration.GetValue<string>("PathBase"));
 app.UseHttpsRedirection();
-
 app.UseDefaultFiles();
 app.UseStaticFiles();
+app.UseRouting();
+
 
 app.MapGet("/api/me", () => new
 {
@@ -15,7 +17,7 @@ app.MapGet("/api/me", () => new
     lastName = "Doe",
 });
 
-app.MapFallbackToFile("index.html", new StaticFileOptions()
+app.MapFallbackToFile("index.html", new StaticFileOptions
 {
     OnPrepareResponse = context =>
     {
