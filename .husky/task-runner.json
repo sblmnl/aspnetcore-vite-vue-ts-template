@@ -3,7 +3,7 @@
   "tasks": [
     {
       "name": "lint-and-format-client",
-      "cwd": "./client",
+      "cwd": "client",
       "command": "npx",
       "args": ["lint-staged"]
     }
