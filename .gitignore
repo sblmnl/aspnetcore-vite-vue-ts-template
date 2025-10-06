@@ -1,0 +1,48 @@
+# ide configuration
+.vscode/
+.idea/
+.vs/
+*.code-workspace
+!my-app.code-workspace
+
+# .env files
+.env
+.env.*
+!.env.example
+
+# local-only appsettings
+appsettings.Local.json
+
+# build files
+bin/
+obj/
+dist/
+
+# vite
+.vite/
+
+# packages
+node_modules/
+
+# logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# publish profiles
+*.pubxml
+
+# user-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# misc
+.DS_Store
